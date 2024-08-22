@@ -150,6 +150,7 @@ button:hover {
     }
 
     .message {
+        margin: 5%;
         font-size: 20px; /* Reduz o tamanho da fonte */
         margin-bottom: 30px; /* Aumenta a margem inferior */
     }
@@ -166,6 +167,7 @@ button:hover {
 
     #narrative-card {
         padding: 15px;
+        margin: 5%;
         max-width: 100%; /* Garante que o cartão não ultrapasse a tela */
         box-sizing: border-box; /* Inclui padding na largura total */
     }
