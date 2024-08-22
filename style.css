@@ -7,131 +7,128 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #212833; /* Cor de fundo escura para contraste */   
-    color: #f0f0f0; /* Cor do texto para melhorar a legibilidade */
+    background: url('https://img.freepik.com/vetores-gratis/fundo-preto-estrelado_53876-85654.jpg') no-repeat center center fixed; /* Imagem de fundo */
+    background-size: cover; /* Ajusta a imagem para cobrir todo o fundo */
+    color: #FFFFFF; /* Texto branco */
 }
 
 .content {
     text-align: center;
     width: 100%;
     max-width: 800px;
-    padding: 20px; /* Aumenta o padding para dar mais espaço */
+    padding: 0 10px; /* Adiciona um pouco de espaçamento nas laterais */
     box-sizing: border-box; /* Inclui o padding na largura total */
     display: flex;
     flex-direction: column;
     align-items: center; /* Centraliza itens horizontalmente */
 }
 
-.message {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 30px; /* Aumenta a margem inferior */
-    color: #ffaf4d; /* Cor clara para boa legibilidade sobre o fundo escuro */
+.message, .central-image, #narrative-card, #choices-container button, #end-text {
+    background-color: #000000; /* Fundo preto para melhorar legibilidade */
+    color: #FFFFFF; /* Texto branco para contraste com fundo preto */
+    padding: 12px;
+    border: #FF0000 2px solid; /* Borda vermelha */
+    border-radius: 9px;
+    font-size: 20px; /* Aumenta o tamanho da fonte */
+    font-weight: bold; /* Torna o texto mais grosso */
+    position: relative; /* Necessário para o fundo preto atrás do texto */
 }
 
 .central-image {
     width: 100%;
-    max-width: 400px;
+    max-width: 300px;
     margin: 20px 0;
     border-radius: 8%;
     position: relative;
     overflow: hidden;
-    transition: transform 0.5s, filter 0.5s;
-    filter: grayscale(100%) brightness(80%); /* Preto e branco com brilho reduzido */
+    transition: transform 0.5s ease, filter 0.5s ease, box-shadow 0.5s ease, border 0.5s ease; /* Tempo de transição para todos os efeitos */
 }
 
 .central-image:hover {
-    transform: scale(1.1) translateZ(0); /* Amplia a imagem ao passar o mouse */
-    filter: grayscale(0%) brightness(100%); /* Remove o preto e branco e ajusta o brilho */
+    transform: scale(1.1) rotate(5deg); /* Aumenta a imagem e rotaciona */
+    filter: brightness(1.2); /* Aumenta o brilho */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4); /* Adiciona uma sombra */
 }
 
-.central-image:hover::before {
+.central-image::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.1); /* Camada de sobreposição sutil para efeito de profundidade */
-    transition: opacity 0.5s;
+    background: rgba(0, 0, 0, 0.3); /* Sobreposição escura */
     opacity: 0;
+    transition: opacity 0.5s ease; /* Tempo de transição para a sobreposição */
 }
 
 .central-image:hover::before {
-    opacity: 1; /* Aumenta a opacidade ao passar o mouse */
-}
-
-/* Efeito de movimento da imagem conforme o mouse se move */
-.central-image {
-    perspective: 1000px; /* Define a perspectiva */
-}
-
-.central-image::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: inherit;
-    transition: transform 0.5s;
-}
-
-.central-image:hover::after {
-    transform: translateX(calc((100% - 100vw) / 2)) translateY(calc((100% - 100vh) / 2)); /* Move a imagem com base na posição do mouse */
+    opacity: 1; /* Mostra a sobreposição ao passar o mouse */
 }
 
 button {
-    background-color: #3c4048; /* Versão mais clara da cor de fundo escura */
-    border: 2px solid #2a2d35; /* Cor da borda um pouco mais escura */
-    color: #ffaf4d; /* Cor clara para boa legibilidade sobre o fundo escuro */
+    background-color: #000000; /* Preto puro */
+    border: 2px solid #FF0000; /* Borda vermelha */
+    color: #FF0000; /* Texto vermelho */
     padding: 12px 24px;
-    font-size: 18px;
+    font-size: 20px; /* Aumenta o tamanho da fonte */
+    font-weight: bold; /* Torna o texto mais grosso */
     cursor: pointer;
     border-radius: 8px;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
     margin-top: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra de texto para legibilidade */
 }
 
 button:hover {
-    background-color: #1c1f24; /* Versão mais escura da cor de fundo escura */
-    color: #ffd6a4; /* Cor clara para boa legibilidade sobre o fundo escuro */
-    border-color: #141618; /* Borda ainda mais escura para efeito de sombra */
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Sombra ao passar o mouse */
+    background-color: #FF0000; /* Vermelho para o fundo ao passar o mouse */
+    color: #000000; /* Preto para o texto ao passar o mouse */
+    border-color: #FF0000; /* Vermelho para a borda ao passar o mouse */
+    box-shadow: 0px 8px 15px rgba(255, 0, 0, 0.2); /* Sombra vermelha ao passar o mouse */
 }
 
 /* Estilos do conteúdo da narrativa */
 #narrative-card {
     padding: 20px;
     border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0px 4px 12px rgb(0, 0, 0); /* Sombra leve para destacar */
-    color: #ffffff; /* Cor do texto */
+    box-shadow: 0px 4px 22px rgba(255, 0, 0, 0.692); /* Sombra vermelha para destacar */
+    color: #ffffff; /* Texto branco */
     max-width: 100%; /* Garante que o cartão não ultrapasse a tela */
     margin: auto; /* Centralizar o cartão */
+    background-color: #000000; /* Fundo preto */
+    font-size: 20px; /* Aumenta o tamanho da fonte */
+    font-weight: bold; /* Torna o texto mais grosso */
 }
 
 /* Estilos das opções de resposta */
 #choices-container button {
-    background-color: #3c4048; /* Versão mais clara da cor de fundo escura */
-    border: 2px solid #2a2d35; /* Cor da borda um pouco mais escura */
-    color: #f0f0f0; /* Cor do texto clara para contraste */
+    background-color: #000000; /* Preto puro */
+    border: 2px solid #FF0000; /* Borda vermelha */
+    color: #FF0000; /* Texto vermelho */
     padding: 12px 24px;
-    font-size: 18px;
+    font-size: 20px; /* Aumenta o tamanho da fonte */
+    font-weight: bold; /* Torna o texto mais grosso */
     cursor: pointer;
     border-radius: 8px;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra de texto para legibilidade */
 }
 
 #choices-container button:hover {
-    background-color: #1c1f24; /* Versão mais escura da cor de fundo escura */
-    color: #fff; /* Texto branco para contraste com o fundo mais escuro */
-    border-color: #141618; /* Borda ainda mais escura para efeito de sombra */
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Sombra ao passar o mouse */
+    background-color: #FF0000; /* Vermelho para o fundo ao passar o mouse */
+    color: #000000; /* Preto para o texto ao passar o mouse */
+    border-color: #FF0000; /* Vermelho para a borda ao passar o mouse */
+    box-shadow: 0px 8px 15px rgba(255, 0, 0, 0.2); /* Sombra vermelha ao passar o mouse */
 }
 
 #end-text {
-    font-size: 24px;
-    color: #007BFF; /* Azul primário */
+    box-shadow: 0px 4px 22px rgba(255, 0, 0, 0.692); /* Sombra vermelha para destacar */
+    font-size: 24px; /* Aumenta o tamanho da fonte */
+    color: #FFFFFF; /* Texto branco */
+    background-color: #000000; /* Fundo preto */
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold; /* Torna o texto mais grosso */
 }
 
 /* Media queries */
@@ -146,33 +143,21 @@ button:hover {
 
     .content {
         width: 100%;
-        padding: 20px; /* Adiciona mais padding para criar espaço */
-    }
-
-    .message {
-        margin: 5%;
-        font-size: 20px; /* Reduz o tamanho da fonte */
-        margin-bottom: 30px; /* Aumenta a margem inferior */
-    }
-
-    .central-image {
-        max-width: 90%; /* Ajusta o tamanho máximo da imagem */
-        margin: 15px 0; /* Ajusta a margem */
+        padding: 0; /* Remove o padding para evitar deslocamento */
     }
 
     button {
-        padding: 10px 20px; /* Ajusta o padding do botão */
-        font-size: 16px; /* Ajusta o tamanho da fonte do botão */
+        padding: 10px 20px;
+        font-size: 18px; /* Ajusta o tamanho da fonte */
     }
 
     #narrative-card {
         padding: 15px;
-        margin: 5%;
         max-width: 100%; /* Garante que o cartão não ultrapasse a tela */
         box-sizing: border-box; /* Inclui padding na largura total */
     }
 
     #narrative-text {
-        font-size: 16px; /* Ajusta o tamanho da fonte */
+        font-size: 18px; /* Ajusta o tamanho da fonte */
     }
 }
