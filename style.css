@@ -7,8 +7,9 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #000000; /* Preto para o fundo */
-    color: #ffffff; /* Branco para o texto */
+    background: url('https://img.freepik.com/vetores-premium/ceu-noturno-escuro-estrelado-com-estrelas-brilhantes_250841-315.jpg?semt=ais_hybrid') no-repeat center center fixed; /* Imagem de fundo */
+    background-size: cover; /* Ajusta a imagem para cobrir todo o fundo */
+    color: #FFFFFF; /* Texto branco */
 }
 
 .content {
@@ -22,11 +23,15 @@ body {
     align-items: center; /* Centraliza itens horizontalmente */
 }
 
-.message {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #ffffff; /* Branco para boa legibilidade sobre o fundo preto */
+.message, .central-image, #narrative-card, #choices-container button, #end-text {
+    background-color: #000000; /* Fundo preto para melhorar legibilidade */
+    color: #FFFFFF; /* Texto branco para contraste com fundo preto */
+    padding: 12px;
+    border: #FF0000 2px solid; /* Borda vermelha */
+    border-radius: 9px;
+    font-size: 20px; /* Aumenta o tamanho da fonte */
+    font-weight: bold; /* Torna o texto mais grosso */
+    position: relative; /* Necessário para o fundo preto atrás do texto */
 }
 
 .central-image {
@@ -36,100 +41,94 @@ body {
     border-radius: 8%;
     position: relative;
     overflow: hidden;
-    transition: transform 0.5s, filter 0.5s;
+    transition: transform 0.5s ease, filter 0.5s ease, box-shadow 0.5s ease, border 0.5s ease; /* Tempo de transição para todos os efeitos */
 }
 
 .central-image:hover {
-    transform: scale(1.1) translateZ(0); /* Amplia a imagem ao passar o mouse */
+    transform: scale(1.1) rotate(5deg); /* Aumenta a imagem e rotaciona */
+    filter: brightness(1.2); /* Aumenta o brilho */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4); /* Adiciona uma sombra */
 }
 
-.central-image:hover::before {
+.central-image::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.1); /* Camada de sobreposição sutil para efeito de profundidade */
-    transition: opacity 0.5s;
+    background: rgba(0, 0, 0, 0.3); /* Sobreposição escura */
     opacity: 0;
+    transition: opacity 0.5s ease; /* Tempo de transição para a sobreposição */
 }
 
 .central-image:hover::before {
-    opacity: 1; /* Aumenta a opacidade ao passar o mouse */
-}
-
-/* Efeito de movimento da imagem conforme o mouse se move */
-.central-image {
-    perspective: 1000px; /* Define a perspectiva */
-}
-
-.central-image::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: inherit;
-    transition: transform 0.5s;
-}
-
-.central-image:hover::after {
-    transform: translateX(calc((100% - 100vw) / 2)) translateY(calc((100% - 100vh) / 2)); /* Move a imagem com base na posição do mouse */
+    opacity: 1; /* Mostra a sobreposição ao passar o mouse */
 }
 
 button {
-    background-color: #000000; /* Preto para o fundo do botão */
-    border: 2px solid #ffffff; /* Branco para a borda */
-    color: #ffffff; /* Branco para o texto */
+    background-color: #000000; /* Preto puro */
+    border: 2px solid #FF0000; /* Borda vermelha */
+    color: #FF0000; /* Texto vermelho */
     padding: 12px 24px;
-    font-size: 18px;
+    font-size: 20px; /* Aumenta o tamanho da fonte */
+    font-weight: bold; /* Torna o texto mais grosso */
     cursor: pointer;
     border-radius: 8px;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
     margin-top: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra de texto para legibilidade */
 }
 
 button:hover {
-    background-color: #ffffff; /* Branco para o fundo ao passar o mouse */
+    background-color: #FF0000; /* Vermelho para o fundo ao passar o mouse */
     color: #000000; /* Preto para o texto ao passar o mouse */
-    border-color: #ffffff; /* Branco para a borda ao passar o mouse */
-    box-shadow: 0px 8px 15px rgba(255, 255, 255, 0.3); /* Sombra branca ao passar o mouse */
+    border-color: #FF0000; /* Vermelho para a borda ao passar o mouse */
+    box-shadow: 0px 8px 15px rgba(255, 0, 0, 0.2); /* Sombra vermelha ao passar o mouse */
 }
 
 /* Estilos do conteúdo da narrativa */
 #narrative-card {
     padding: 20px;
     border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.3); /* Sombra branca para destacar */
-    color: #ffffff; /* Branco para o texto */
+    box-shadow: 0px 4px 22px rgba(255, 0, 0, 0.692); /* Sombra vermelha para destacar */
+    color: #ffffff; /* Texto branco */
     max-width: 100%; /* Garante que o cartão não ultrapasse a tela */
     margin: auto; /* Centralizar o cartão */
+    background-color: #000000; /* Fundo preto */
+    font-size: 20px; /* Aumenta o tamanho da fonte */
+    font-weight: bold; /* Torna o texto mais grosso */
 }
 
 /* Estilos das opções de resposta */
 #choices-container button {
-    background-color: #000000; /* Preto para o fundo do botão */
-    border: 2px solid #ffffff; /* Branco para a borda */
-    color: #ffffff; /* Branco para o texto */
+    background-color: #000000; /* Preto puro */
+    border: 2px solid #FF0000; /* Borda vermelha */
+    color: #FF0000; /* Texto vermelho */
     padding: 12px 24px;
-    font-size: 18px;
+    font-size: 20px; /* Aumenta o tamanho da fonte */
+    font-weight: bold; /* Torna o texto mais grosso */
     cursor: pointer;
     border-radius: 8px;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra de texto para legibilidade */
 }
 
 #choices-container button:hover {
-    background-color: #ffffff; /* Branco para o fundo ao passar o mouse */
+    background-color: #FF0000; /* Vermelho para o fundo ao passar o mouse */
     color: #000000; /* Preto para o texto ao passar o mouse */
-    border-color: #ffffff; /* Branco para a borda ao passar o mouse */
-    box-shadow: 0px 8px 15px rgba(255, 255, 255, 0.3); /* Sombra branca ao passar o mouse */
+    border-color: #FF0000; /* Vermelho para a borda ao passar o mouse */
+    box-shadow: 0px 8px 15px rgba(255, 0, 0, 0.2); /* Sombra vermelha ao passar o mouse */
 }
 
 #end-text {
-    font-size: 24px;
-    color: #ffffff; /* Branco */
+    box-shadow: 0px 4px 22px rgba(255, 0, 0, 0.692); /* Sombra vermelha para destacar */
+    font-size: 24px; /* Aumenta o tamanho da fonte */
+    color: #FFFFFF; /* Texto branco */
+    background-color: #000000; /* Fundo preto */
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold; /* Torna o texto mais grosso */
 }
 
 /* Media queries */
@@ -149,7 +148,7 @@ button:hover {
 
     button {
         padding: 10px 20px;
-        font-size: 16px;
+        font-size: 18px; /* Ajusta o tamanho da fonte */
     }
 
     #narrative-card {
@@ -159,6 +158,6 @@ button:hover {
     }
 
     #narrative-text {
-        font-size: 16px;
+        font-size: 18px; /* Ajusta o tamanho da fonte */
     }
 }
