@@ -15,7 +15,7 @@ body {
     text-align: center;
     width: 100%;
     max-width: 800px;
-    padding: 0 20px; /* Aumenta o espaçamento nas laterais */
+    padding: 20px; /* Aumenta o padding para dar mais espaço */
     box-sizing: border-box; /* Inclui o padding na largura total */
     display: flex;
     flex-direction: column;
@@ -145,13 +145,13 @@ button:hover {
     }
 
     .content {
-        width: 90%; /* Ajusta a largura da content */
-        padding: 10px; /* Adiciona padding nas laterais */
+        width: 100%;
+        padding: 20px; /* Adiciona mais padding para criar espaço */
     }
 
     .message {
         font-size: 20px; /* Reduz o tamanho da fonte */
-        margin-bottom: 25px; /* Aumenta a margem inferior */
+        margin-bottom: 30px; /* Aumenta a margem inferior */
     }
 
     .central-image {
